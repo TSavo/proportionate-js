@@ -1,0 +1,28 @@
+{
+  "name": "proportionate",
+  "version": "0.0.1",
+  "description": "Convenience methods for dealing with proportions (a part, share, or number considered in comparative relation to a whole).",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TSavo/proportionate-js.git"
+  },
+  "keywords": [
+    "Javascript",
+    "proportionate",
+    "arrays"
+  ],
+  "author": "Travis Savo <evilgenius@nefariousplan.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TSavo/proportionate-js/issues"
+  },
+  "homepage": "https://github.com/TSavo/proportionate-js#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "expect": "^1.20.2"
+  }
+}
