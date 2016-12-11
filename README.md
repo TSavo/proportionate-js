@@ -14,8 +14,9 @@ And the bounded range:
     0..100
     
 The expected truth table would be:
+
 | Input | Output |
-|---|---|
+|:---:|:---:|
 | 0-32 | 1 |
 | 33-65 | 2 |
 | 66-100 | 3 |
