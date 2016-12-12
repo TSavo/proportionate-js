@@ -1,7 +1,9 @@
 # The Proportionate Javascript Library
+
 [![build status](https://gitlab.com/TSavo/proportionate-js/badges/master/build.svg)](https://gitlab.com/TSavo/proportionate-js/commits/master) [![coverage report](https://gitlab.com/TSavo/proportionate-js/badges/master/coverage.svg)](https://gitlab.com/TSavo/proportionate-js/commits/master)
 
 [![Code Climate](https://codeclimate.com/github/TSavo/proportionate-js/badges/gpa.svg)](https://codeclimate.com/github/TSavo/proportionate-js) [![Test Coverage](https://codeclimate.com/github/TSavo/proportionate-js/badges/coverage.svg)](https://codeclimate.com/github/TSavo/proportionate-js/coverage) [![Issue Count](https://codeclimate.com/github/TSavo/proportionate-js/badges/issue_count.svg)](https://codeclimate.com/github/TSavo/proportionate-js)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1e37f3a37a3433290c3a5180c6c0457)](https://www.codacy.com/app/evilgenius/proportionate-js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TSavo/proportionate-js&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a1e37f3a37a3433290c3a5180c6c0457)](https://www.codacy.com/app/evilgenius/proportionate-js?utm_source=github.com&utm_medium=referral&utm_content=TSavo/proportionate-js&utm_campaign=Badge_Coverage) [![CircleCI](https://circleci.com/gh/TSavo/proportionate-js.svg?style=svg)](https://circleci.com/gh/TSavo/proportionate-js) 
+
 
 - [The Proportionate Javascript Library](#the-proportionate-javascript-library)
   * [What it does](#what-it-does)
@@ -20,6 +22,7 @@
   * [As a module](#as-a-module-1)
   * [As a prototype on Array](#as-a-prototype-on-array-1)
 
+
 ## What it does
 
 Convenience methods for dealing with proportions (a part, share, or number considered in comparative relation to a whole).
@@ -30,15 +33,15 @@ Useful when you need to select from a small list of things given a broad range o
 
 ## How it does it
 
+It takes the form: 
+
+    proportionate(sampleArray, valueInRange, [rangeMax(orMin), [rangeMax]]) => sample
+
 It uses the formula:
 
     index = max(sampleSize, min(0, sampleSize * round((part - rangeMin) / (rangeMax - rangeMin)) - 1))
 
-It takes the form: 
-
-    proportionate(sampleArray, part, [rangeMax(orMin), [rangeMax]]) => sample
-
-SampleArray and part are required arguments. SampleArray must be an array. RangeMin and rangeMax default to 0 and 99, respectively. If you specify one range argument, it's 0..rangeMax, but if you specify both, it's rangeMin..rangeMax.
+SampleArray and valueInRange are required arguments. SampleArray must be an array. RangeMin and rangeMax default to 0 and 99, respectively. If you specify one range argument, it's 0..rangeMax, but if you specify both, it's rangeMin..rangeMax.
 
 ## Expected output
 
@@ -70,7 +73,7 @@ Clamped proportionate has the exact same interface, but only returns the extreme
 
 It uses the formula:
 
-    index = actual <= 0 ? 0 : actual >= max ? sampleSize - 1 : max(sampleSize, min(1, sampleSize * round((part - rangeMin) / (rangeMax - rangeMin)) - 2))
+    index = actual <= 0 ? 0 : actual >= max ? sampleSize - 1 : max(sampleSize, min(1, sampleSize * round((valueInRange - rangeMin) / (rangeMax - rangeMin)) - 2))
 
 ## Expected output
 
