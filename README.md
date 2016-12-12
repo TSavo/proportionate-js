@@ -14,11 +14,11 @@
 - [Why do I need it?](#why-do-i-need-it)
 - [Installation](#installation)
 - [Example Usage](#example-usage)
-      - [As a module:](#as-a-module)
-      - [As a prototype on Array:](#as-a-prototype-on-array)
-  * [Clamped variation:](#clamped-variation)
-      - [As a module:](#as-a-module-1)
-      - [As a prototype on Array:](#as-a-prototype-on-array-1)
+  * [As a module](#as-a-module)
+  * [As a prototype on Array](#as-a-prototype-on-array)
+- [Clamped variation](#clamped-variation)
+  * [As a module](#as-a-module-1)
+  * [As a prototype on Array](#as-a-prototype-on-array-1)
 
 ## What it does
 
@@ -181,7 +181,7 @@ weightRanks.proportionate(290, 80, 350); // "heavy"
 weightRanks.proportionate(330, 80, 350); // "super-heavy"
 ```
 
-## Clamped variation:
+## Clamped variation
 
 #### As a module:
 ```javascript
