@@ -6,4 +6,10 @@ all_tests:
    - npm test
    - npm run-script codacy
    - npm run-script codeclimate
+
+deploy:
+  script:
+    - npm install
+    - npm run semantic-release
+
    
