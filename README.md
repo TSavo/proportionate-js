@@ -70,7 +70,7 @@ Clamped proportionate has the exact same interface, but only returns the extreme
 
 It uses the formula:
 
-    index = actual <= 0 ? 0 : actual >= sampleSize - 1 ? actual : max(sampleSize, min(1, sampleSize * round((part - rangeMin) / (rangeMax - rangeMin)) - 2))
+    index = actual <= 0 ? 0 : actual >= max ? sampleSize - 1 : max(sampleSize, min(1, sampleSize * round((part - rangeMin) / (rangeMax - rangeMin)) - 2))
 
 ## Expected output
 
