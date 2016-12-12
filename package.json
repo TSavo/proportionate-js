@@ -27,6 +27,7 @@
     "url": "https://github.com/TSavo/proportionate-js/issues"
   },
   "homepage": "https://github.com/TSavo/proportionate-js#readme",
+  "tonicExampleFilename":"example.js",
   "devDependencies": {
     "chai": "^3.5.0",
     "codacy-coverage": "^2.0.0",

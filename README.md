@@ -85,6 +85,7 @@ Or in functional notation:
     [0..99].map(x -> proportionate([1, 2, 3], x))
     
 The expected truth table would be:
+
 | Input | Output |
 |:---:|:---:|
 | 0 | 1 |
