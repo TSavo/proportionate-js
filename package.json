@@ -1,6 +1,6 @@
 {
   "name": "proportionate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Convenience methods for dealing with proportions (a part, share, or number considered in comparative relation to a whole).",
   "main": "lib/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "url": "https://github.com/TSavo/proportionate-js/issues"
   },
   "homepage": "https://github.com/TSavo/proportionate-js#readme",
-  "tonicExampleFilename":"example.js",
+  "tonicExampleFilename": "example.js",
   "devDependencies": {
     "chai": "^3.5.0",
     "codacy-coverage": "^2.0.0",
