@@ -1,6 +1,6 @@
 {
   "name": "proportionate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Convenience methods for dealing with proportions (a part, share, or number considered in comparative relation to a whole).",
   "main": "lib/index.js",
   "scripts": {
