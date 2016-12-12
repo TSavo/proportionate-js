@@ -194,11 +194,11 @@ var proportionate = require("proportionate/clamped");
 var tankFullness = ["empty", "almost empty", "half-full", "mostly full", "completely full"];
 
 //Default range of 0..99
-proportionate(tankFullness, 0); // "empty"
-proportionate(tankFullness, 1); // "almost empty"
-proportionate(tankFullness, 45); // "half-full"
-proportionate(tankFullness, 98); // "mostly full"
-proportionate(tankFullness, 99); // "completely full"
+tankFullness.proportionate(0); // "empty"
+tankFullness.proportionate(1); // "almost empty"
+tankFullness.proportionate(45); // "half-full"
+tankFullness.proportionate(98); // "mostly full"
+tankFullness.proportionate(99); // "completely full"
 ```
 
 #### As a prototype on Array:
