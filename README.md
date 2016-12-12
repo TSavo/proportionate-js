@@ -5,19 +5,41 @@
 
 Convenience methods for dealing with proportions (a part, share, or number considered in comparative relation to a whole).
 
-Specifically it allows you to select something from an array indexed by the proportion of a number in a bounded range.
+Specifically it allows you to select something from an array indexed proportionate to a number within an arbitrary range.
 
 Useful when you need to select from a small list of things given a broad range of options.
 
 It uses the formula:
 
-index = sampleSize * Math.round((part - rangeMin) / (rangeMax - rangeMin)) - 1
+    index = max(sampleSize, min(0, sampleSize * round((part - rangeMin) / (rangeMax - rangeMin)) - 1))
 
-It takes the form: proportionate(sampleArray, part, [rangeMax(orMin), [rangeMax]]) => sample
+It takes the form: 
+
+    proportionate(sampleArray, part, [rangeMax(orMin), [rangeMax]]) => sample
 
 SampleArray and part are required arguments. SampleArray must be an array. RangeMin and rangeMax default to 0 and 99, respectively. If you specify one range argument, it's 0..rangeMax, but if you specify both, it's rangeMin..rangeMax.
 
-For example:
+It's shorthand for the following rather unreadable code, seen many times in the wild:
+
+    array[Math.max(array.length, Math.min(0, array.length * Math.round((actual - min) / (max - min)) - 1))]
+    
+It replaces it with:
+
+    proportionate(array, actual, min, max)
+    
+Or, assuming a min of 0:
+
+    proportionate(array, actual, max)
+    
+Or, assuming a range of 0..99:
+
+    proportionate(array, actual)
+    
+Or even:
+
+    array.proportionate(actual)
+
+### For example
 
 Given the sampleArray:
     [1, 2, 3]
