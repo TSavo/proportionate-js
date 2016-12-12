@@ -1,4 +1,9 @@
 # The Proportionate Javascript Library
+[![build status](https://gitlab.com/TSavo/proportionate-js/badges/master/build.svg)](https://gitlab.com/TSavo/proportionate-js/commits/master)[![coverage report](https://gitlab.com/TSavo/proportionate-js/badges/master/coverage.svg)](https://gitlab.com/TSavo/proportionate-js/commits/master)
+
+[![Code Climate](https://codeclimate.com/github/TSavo/proportionate-js/badges/gpa.svg)](https://codeclimate.com/github/TSavo/proportionate-js)[![Test Coverage](https://codeclimate.com/github/TSavo/proportionate-js/badges/coverage.svg)](https://codeclimate.com/github/TSavo/proportionate-js/coverage)[![Issue Count](https://codeclimate.com/github/TSavo/proportionate-js/badges/issue_count.svg)](https://codeclimate.com/github/TSavo/proportionate-js)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1e37f3a37a3433290c3a5180c6c0457)](https://www.codacy.com/app/evilgenius/proportionate-js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TSavo/proportionate-js&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a1e37f3a37a3433290c3a5180c6c0457)](https://www.codacy.com/app/evilgenius/proportionate-js?utm_source=github.com&utm_medium=referral&utm_content=TSavo/proportionate-js&utm_campaign=Badge_Coverage)
+
+
 Convenience methods for dealing with proportions (a part, share, or number considered in comparative relation to a whole).
 
 Specifically it allows you to select something from an array indexed by the proportion of a number in a bounded range.
@@ -27,7 +32,7 @@ The expected truth table would be:
 | 33-65 | 2 |
 | 66-99 | 3 |
 
-##Variation: Clamped Proportionate
+## Variation: Clamped Proportionate
 
 Clamped proportionate has the exact same interface, but only returns the extreme values when the input is equal to the extreme of the range:
 
@@ -38,15 +43,15 @@ Clamped proportionate has the exact same interface, but only returns the extreme
 | 99 | 3 |
 
 
-#Installation
+# Installation
 
     npm install --save proportionate 
 
-#Usage
+# Usage
 
-####As a module:
+#### As a module:
 ```javascript
-proportionate = require("proportionate");
+var proportionate = require("proportionate");
 
 var weightRanks = ["fly", "light", "medium", "heavy", "super-heavy"];
 
@@ -72,7 +77,7 @@ proportionate(weightRanks, 290, 80, 350); // "heavy"
 proportionate(weightRanks, 330, 80, 350); // "super-heavy"
 ```
 
-####As a prototype on Array:
+#### As a prototype on Array:
 ```javascript
 // This installs .proportionate on Array.prototype:
 require("proportionate/arrays"); 
@@ -104,11 +109,11 @@ weightRanks.proportionate(290, 80, 350); // "heavy"
 weightRanks.proportionate(330, 80, 350); // "super-heavy"
 ```
 
-##Clamped variation:
+## Clamped variation:
 
-####As a module:
+#### As a module:
 ```javascript
-proportionate = require("proportionate/clamped");
+var proportionate = require("proportionate/clamped");
 
 var tankFullness = ["empty", "almost empty", "half-full", "mostly full", "completely full"];
 
@@ -120,7 +125,7 @@ proportionate(tankFullness, 98); // "mostly full"
 proportionate(tankFullness, 99); // "completely full"
 ```
 
-####As a prototype on Array:
+#### As a prototype on Array:
 ```javascript
 // This installs .proportionate on Array.prototype:
 require("proportionate/clamped/arrays"); 
