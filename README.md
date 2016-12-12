@@ -3,11 +3,32 @@
 
 [![Code Climate](https://codeclimate.com/github/TSavo/proportionate-js/badges/gpa.svg)](https://codeclimate.com/github/TSavo/proportionate-js) [![Test Coverage](https://codeclimate.com/github/TSavo/proportionate-js/badges/coverage.svg)](https://codeclimate.com/github/TSavo/proportionate-js/coverage) [![Issue Count](https://codeclimate.com/github/TSavo/proportionate-js/badges/issue_count.svg)](https://codeclimate.com/github/TSavo/proportionate-js)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1e37f3a37a3433290c3a5180c6c0457)](https://www.codacy.com/app/evilgenius/proportionate-js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TSavo/proportionate-js&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a1e37f3a37a3433290c3a5180c6c0457)](https://www.codacy.com/app/evilgenius/proportionate-js?utm_source=github.com&utm_medium=referral&utm_content=TSavo/proportionate-js&utm_campaign=Badge_Coverage) [![CircleCI](https://circleci.com/gh/TSavo/proportionate-js.svg?style=svg)](https://circleci.com/gh/TSavo/proportionate-js) 
 
+- [The Proportionate Javascript Library](#the-proportionate-javascript-library)
+  * [What it does](#what-it-does)
+  * [How it does it](#how-it-does-it)
+  * [Expected output](#expected-output)
+- [Variation: Clamped Proportionate](#variation-clamped-proportionate)
+  * [What it does](#what-it-does-1)
+  * [How it does it](#how-it-does-it-1)
+  * [Expected output](#expected-output-1)
+- [Why do I need it?](#why-do-i-need-it)
+- [Installation](#installation)
+- [Example Usage](#example-usage)
+      - [As a module:](#as-a-module)
+      - [As a prototype on Array:](#as-a-prototype-on-array)
+  * [Clamped variation:](#clamped-variation)
+      - [As a module:](#as-a-module-1)
+      - [As a prototype on Array:](#as-a-prototype-on-array-1)
+
+## What it does
+
 Convenience methods for dealing with proportions (a part, share, or number considered in comparative relation to a whole).
 
 Specifically it allows you to select something from an array indexed proportionate to a number within an arbitrary range.
 
 Useful when you need to select from a small list of things given a broad range of options.
+
+## How it does it
 
 It uses the formula:
 
@@ -19,27 +40,7 @@ It takes the form:
 
 SampleArray and part are required arguments. SampleArray must be an array. RangeMin and rangeMax default to 0 and 99, respectively. If you specify one range argument, it's 0..rangeMax, but if you specify both, it's rangeMin..rangeMax.
 
-It's shorthand for the following rather unreadable code, seen many times in the wild:
-
-    array[Math.max(array.length, Math.min(0, array.length * Math.round((actual - min) / (max - min)) - 1))]
-    
-It replaces it with:
-
-    proportionate(array, actual, min, max)
-    
-Or, assuming a min of 0:
-
-    proportionate(array, actual, max)
-    
-Or, assuming a range of 0..99:
-
-    proportionate(array, actual)
-    
-Or even:
-
-    array.proportionate(actual)
-
-### For example
+## Expected output
 
 Given the sampleArray:
     [1, 2, 3]
@@ -59,22 +60,66 @@ The expected truth table would be:
 | 33-65 | 2 |
 | 66-99 | 3 |
 
-## Variation: Clamped Proportionate
+# Variation: Clamped Proportionate
 
-Clamped proportionate has the exact same interface, but only returns the extreme values when the input is equal to the extreme of the range:
+## What it does
 
+Clamped proportionate has the exact same interface, but only returns the extreme values when the input is equal to the extreme of the range.
+
+## How it does it
+
+It uses the formula:
+
+    index = actual <= 0 ? 0 : actual >= sampleSize - 1 ? actual : max(sampleSize, min(1, sampleSize * round((part - rangeMin) / (rangeMax - rangeMin)) - 2))
+
+## Expected output
+
+Given the sampleArray:
+    [1, 2, 3]
+    
+And the (default) range:
+    0, 99
+    
+Or in functional notation:
+
+    [0..99].map(x -> proportionate([1, 2, 3], x))
+    
+The expected truth table would be:
 | Input | Output |
 |:---:|:---:|
 | 0 | 1 |
 | 1-98 | 2 |
 | 99 | 3 |
 
+# Why do I need it?
+
+It's shorthand for the following rather unreadable code, seen many times in the wild:
+
+    array[Math.max(array.length, Math.min(0, array.length * Math.round((actual - min) / (max - min)) - 1))]
+    
+It replaces it with:
+
+    proportionate(array, actual, min, max)
+    
+Or, assuming a min of 0:
+
+    proportionate(array, actual, max)
+    
+Or, assuming a range of 0..99:
+
+    proportionate(array, actual)
+    
+Or, when using the Array.prototype option:
+
+    array.proportionate(array, actual, min, max)
+    array.proportionate(actual, max)
+    array.proportionate(actual)
 
 # Installation
 
     npm install --save proportionate 
 
-# Usage
+# Example Usage
 
 #### As a module:
 ```javascript
