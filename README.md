@@ -115,7 +115,7 @@ Or, assuming a range of 0..99:
     
 Or, when using the Array.prototype option:
 
-    array.proportionate(array, actual, min, max)
+    array.proportionate(actual, min, max)
     array.proportionate(actual, max)
     array.proportionate(actual)
 
