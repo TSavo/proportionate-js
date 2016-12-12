@@ -15,6 +15,8 @@ index = sampleSize * Math.round((part - rangeMin) / (rangeMax - rangeMin)) - 1
 
 It takes the form: proportionate(sampleArray, part, [rangeMax(orMin), [rangeMax]]) => sample
 
+SampleArray and part are required arguments. SampleArray must be an array. RangeMin and rangeMax default to 0 and 99, respectively. If you specify one range argument, it's 0..rangeMax, but if you specify both, it's rangeMin..rangeMax.
+
 For example:
 
 Given the sampleArray:
@@ -22,6 +24,10 @@ Given the sampleArray:
     
 And the (default) range:
     0, 99
+    
+Or in functional notation:
+
+    [0..99].map(x -> proportionate([1, 2, 3], x))
     
 The expected truth table would be:
 
@@ -140,3 +146,5 @@ tankFullness.proportionate(45); // "half-full"
 tankFullness.proportionate(98); // "mostly full"
 tankFullness.proportionate(99); // "completely full"
 ```
+
+Pull requests are welcome, please file any bugs on https://github.com/tsavo/proportionate-js
